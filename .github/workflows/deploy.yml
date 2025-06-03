@@ -12,20 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies (Optional)
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
       - name: Setup SSH and deploy
         env:
           SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          HOST: ${{ secrets.LIGHTSAIL_HOST }} 
+          HOST: ${{ secrets.LIGHTSAIL_HOST }}
           USER: ubuntu
         run: |
           echo "🔐 Setting up SSH key..."
@@ -38,9 +28,16 @@ jobs:
           ssh $USER@$HOST << 'EOF'
             set -e
             cd ~/fastapi-demo
-            git pull origin main
+
+            # 強制同步 GitHub 上最新程式碼
+            git fetch origin
+            git reset --hard origin/main
+
+            # 啟動虛擬環境並安裝相依
             source venv/bin/activate
             pip install -r requirements.txt
+
+            # 重啟 FastAPI 應用
             pkill -f "uvicorn" || true
             nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 &
           EOF
