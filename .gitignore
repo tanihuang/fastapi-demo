@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment files
+.env
+.env.*
+
+# SQLite database
+*.sqlite3
+*.db
+stocks.db
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# Coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# Uvicorn PID files
+*.pid

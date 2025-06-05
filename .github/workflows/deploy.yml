@@ -25,19 +25,22 @@ jobs:
           ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
           echo "🚀 Deploying to $HOST ..."
-          ssh $USER@$HOST << 'EOF'
+          ssh -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
             set -e
             cd ~/fastapi-demo
 
-            # 強制同步 GitHub 上最新程式碼
+            echo "📦 Fetching latest code..."
             git fetch origin
             git reset --hard origin/main
 
-            # 啟動虛擬環境並安裝相依
+            echo "🐍 Activating venv & installing dependencies..."
             source venv/bin/activate
+            pip install --upgrade pip
             pip install -r requirements.txt
 
-            # 重啟 FastAPI 應用
+            echo "🔁 Restarting FastAPI server..."
             pkill -f "uvicorn" || true
-            nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+            nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &
+
+            echo "✅ Deployed and running in background (check: tail -f server.log)"
           EOF
