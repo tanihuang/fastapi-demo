@@ -42,3 +42,7 @@ docker-compose.override.yml
 
 # Uvicorn PID files
 *.pid
+
+# Auth
+credentials.json
+token.json

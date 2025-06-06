@@ -3,6 +3,8 @@ from contextlib import asynccontextmanager
 from app.routers import stock
 from app.db.database import init_db
 from app.scheduler.jobs import start_scheduler
+from dotenv import load_dotenv
+load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

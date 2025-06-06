@@ -2,5 +2,17 @@
   "python.defaultInterpreterPath": ".venv/bin/python",
   "python.analysis.extraPaths": [
     "/Users/tanihuang/Library/Python/3.9/lib/python/site-packages"
-  ]
+  ],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true
+  }
 }
