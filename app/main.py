@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from app.routers import stock
+from app.routers import ask
 from app.db.database import init_db
 from app.scheduler.jobs import start_scheduler
 from dotenv import load_dotenv
@@ -15,3 +16,4 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(stock.router)
+app.include_router(ask.router)
