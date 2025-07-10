@@ -1,13 +1,37 @@
+# ✅ FastAPI 基本組件
 fastapi==0.110.2
 uvicorn==0.27.1
+python-multipart==0.0.9
+python-dotenv==1.0.1
+
+# ✅ 資料處理與排程
 pandas==2.2.2
 numpy==1.26.4
-python-multipart==0.0.9
-sqlmodel==0.0.24
-sqlalchemy==2.0.41
 apscheduler==3.10.4
-yfinance==0.2.40
+
+# ✅ 資料庫相關
+sqlalchemy==2.0.41
+sqlmodel==0.0.24
+
+# ✅ Email 功能
 fastapi-mail==1.4.1
 pydantic[email]==2.7.1
 email-validator==2.1.1
-python-dotenv==1.0.1
+
+# ✅ 影像處理與 AI 模型
+Pillow==10.3.0
+ultralytics==8.2.26         # YOLOv8 推薦版本
+torch==2.6.0
+torchvision==0.21.0
+
+# ✅ 醫療影像支援
+monai==1.5.0
+nibabel==5.3.2
+
+# ✅ 股票資訊
+yfinance==0.2.40
+
+# ✅ 文檔與圖片文字擷取 OCR
+pytesseract==0.3.10         # OCR 工具（需搭配 tesseract 安裝）
+python-docx==1.1.0          # 讀取 .docx 文件
+PyPDF2==3.0.1               # 讀取 PDF 文字

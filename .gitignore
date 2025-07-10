@@ -16,7 +16,16 @@ venv/
 # SQLite database
 *.sqlite3
 *.db
-stocks.db
+
+# Raw datasets and temporary data (adjust paths as needed)
+dataset/
+
+# Trained model files (ignore large binary weights)
+models/
+
+# Inference outputs and generated media
+static/
+runs/
 
 # Logs
 *.log
