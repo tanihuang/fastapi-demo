@@ -3,13 +3,19 @@
   "python.analysis.extraPaths": [
     "/Users/tanihuang/Library/Python/3.9/lib/python/site-packages"
   ],
+  "python.terminal.activateEnvironment": true, // 自動執行
+  "[python]": {
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "eeyore.yapf",
+    "editor.formatOnType": false
+  },
+  "yapf.args": [
+    "--style", "{based_on_style: pep8, indent_width: 2, blank_lines_between_top_level_definition: 1}"
+  ],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.formatOnSave": true,
-  "python.formatting.provider": "black",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
+  "editor.detectIndentation": false,
   "files.exclude": {
     "**/__pycache__": true,
     "**/.pytest_cache": true,

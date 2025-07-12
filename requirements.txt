@@ -1,37 +1,56 @@
-# ✅ FastAPI 基本組件
+# ✅ 基礎框架與設定
 fastapi==0.110.2
-uvicorn==0.27.1
-python-multipart==0.0.9
 python-dotenv==1.0.1
+python-multipart==0.0.9
+uvicorn==0.27.1
 
 # ✅ 資料處理與排程
-pandas==2.2.2
-numpy==1.26.4
 apscheduler==3.10.4
+numpy==1.26.4  # 避開 NumPy 2，確保與 Flyte 相容
+pandas==2.2.2
 
 # ✅ 資料庫相關
 sqlalchemy==2.0.41
 sqlmodel==0.0.24
 
-# ✅ Email 功能
-fastapi-mail==1.4.1
-pydantic[email]==2.7.1
-email-validator==2.1.1
+# ✅ Email 功能與 Google API
+email-validator==2.2.0
+fastapi-mail==1.5.0
+google-api-python-client==2.171.0
+google-auth==2.40.3
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.2
+pydantic[email]==2.11.5
 
 # ✅ 影像處理與 AI 模型
-Pillow==10.3.0
-ultralytics==8.2.26         # YOLOv8 推薦版本
+Pillow==11.2.1
 torch==2.6.0
 torchvision==0.21.0
+ultralytics==8.3.161
 
-# ✅ 醫療影像支援
+# ✅ 醫療影像處理
 monai==1.5.0
 nibabel==5.3.2
 
 # ✅ 股票資訊
-yfinance==0.2.40
+yfinance==0.2.61
 
-# ✅ 文檔與圖片文字擷取 OCR
-pytesseract==0.3.10         # OCR 工具（需搭配 tesseract 安裝）
-python-docx==1.1.0          # 讀取 .docx 文件
-PyPDF2==3.0.1               # 讀取 PDF 文字
+# ✅ OCR 與文檔處理
+PyPDF2==3.0.1
+python-docx==1.2.0
+pytesseract==0.3.13
+
+# ✅ LLM/RAG 問答與嵌入模型
+accelerate==1.8.1
+transformers==4.53.1
+sentence-transformers==5.0.0
+llama-index==0.12.44
+llama-index-llms-llama-cpp==0.4.0
+llama-index-embeddings-huggingface==0.5.5
+langchain==0.1.20  # ✅ 新增，支援 HuggingFaceEmbeddings
+
+# ✅ 開發工具與格式化
+yapf==0.43.0
+
+# ✅ Flyte 支援
+flytekit==1.11.0
